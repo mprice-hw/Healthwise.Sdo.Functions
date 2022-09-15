@@ -1,0 +1,5 @@
+﻿enum PipelineStatus
+{
+    Started,
+    Completed
+}
