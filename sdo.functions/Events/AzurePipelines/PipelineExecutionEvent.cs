@@ -22,6 +22,9 @@ namespace sdo.functions.Events.AzurePipelines
         [JsonPropertyName("serviceName")]
         public string ServiceName { get; set; }
 
+        [JsonPropertyName("serviceVersion")]
+        public string ServiceVersion { get; set; }
+
         [JsonPropertyName("repoName")]
         public string RepoName { get; set; }
 
