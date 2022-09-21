@@ -15,6 +15,9 @@ namespace sdo.functions.Events
         [JsonPropertyName("type")]
         public string Type { get; set; }
 
+        [JsonPropertyName("version")]
+        public string Version { get; set; }
+
         [JsonPropertyName("sourceId")]
         public string SourceId { get; set; }
 
