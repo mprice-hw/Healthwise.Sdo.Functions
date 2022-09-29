@@ -1,19 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Text.Json.Serialization;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 using System.Threading.Tasks;
 
 namespace sdo.functions.Events.Jira
 {
     internal class JiraProject
     {
-        [JsonPropertyName("id")]
+        [JsonProperty("id")]
         public int Id { get; set; }
-        [JsonPropertyName("key")]
+        [JsonProperty("key")]
         public string Key { get; set; }
-        [JsonPropertyName("name")]
+        [JsonProperty("name")]
         public string Name { get; set; }
     }
 }

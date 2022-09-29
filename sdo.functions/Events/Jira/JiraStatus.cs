@@ -1,20 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 using System.Threading.Tasks;
-using System.Text.Json.Serialization;
 using sdo.functions.Events.Jira;
 
 namespace sdo.functions.Events.Jira
 {
     internal class JiraStatus
     {
-        [JsonPropertyName("id")]
+        [JsonProperty("id")]
         public int Id { get; set; }
-        [JsonPropertyName("name")]
+        [JsonProperty("name")]
         public string Name { get; set; }
-        [JsonPropertyName("statusCategory")]
+        [JsonProperty("statusCategory")]
         public JiraStatusCategory StatusCategory { get; set; }
     }
 }

@@ -1,27 +1,29 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
-using System.Text;
-using System.Text.Json.Serialization;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 using System.Threading.Tasks;
 
 namespace sdo.functions.Events
 {
     internal class EventBase
     {
-        [JsonPropertyName("source")]
+        [JsonProperty("source")]
         public string Source { get; set; }
 
-        [JsonPropertyName("type")]
+        [JsonProperty("type")]
         public string Type { get; set; }
 
-        [JsonPropertyName("version")]
+        [JsonProperty("version")]
         public string Version { get; set; }
 
-        [JsonPropertyName("sourceId")]
+        [JsonProperty("sourceId")]
         public string SourceId { get; set; }
 
-        [JsonPropertyName("timeStamp")]
-        public DateTime TimeStamp { get; set; }
+        [JsonProperty("timeStamp")]
+        [JsonConverter(typeof(IsoDateTimeConverter))]
+        public DateTimeOffset TimeStamp { get; set; }
     }
 }

@@ -2,7 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Text.Json;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 using System.Threading.Tasks;
 using Azure.Messaging.EventHubs;
 using Azure.Storage;
@@ -58,7 +59,8 @@ namespace sdo.functions
         private static string GetIdentifier(EventData eventData)
         {
             var eventString = eventData.EventBody.ToString();
-            var eventObject = JsonSerializer.Deserialize<EventBase>(eventString);
+            //var eventObject = JsonSerializer.Deserialize<EventBase>(eventString);
+            var eventObject = JsonConvert.DeserializeObject<EventBase>(eventString);
             var identifier = eventObject.SourceId;
             return identifier;
         }
@@ -66,7 +68,8 @@ namespace sdo.functions
         private static string GetDestinationContainerName(EventData eventData) 
         {
             var eventString = eventData.EventBody.ToString();
-            var eventObject = JsonSerializer.Deserialize<EventBase>(eventString);
+            //var eventObject = JsonSerializer.Deserialize<EventBase>(eventString);
+            var eventObject = JsonConvert.DeserializeObject<EventBase>(eventString);
 
             if (eventObject.Type == "PipelineExecutionEvent")
             {

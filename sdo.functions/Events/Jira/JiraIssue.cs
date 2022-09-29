@@ -1,30 +1,30 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Text.Json.Serialization;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 using System.Threading.Tasks;
 
 namespace sdo.functions.Events.Jira
 {
     internal class JiraIssue
     {
-        [JsonPropertyName("id")]
+        [JsonProperty("id")]
         public int Id { get; set; }
 
-        [JsonPropertyName("key")]
+        [JsonProperty("key")]
         public string Key { get; set; }
         
-        [JsonPropertyName("updated")]
+        [JsonProperty("updated")]
         public string Updated { get; set; }
         
-        [JsonPropertyName("project")]
+        [JsonProperty("project")]
         public JiraProject Project { get; set; }
 
-        [JsonPropertyName("status")]
+        [JsonProperty("status")]
         public JiraStatus Status { get; set; }
 
-        [JsonPropertyName("issueType")]
+        [JsonProperty("issueType")]
         public JiraIssueType IssueType { get; set; }
 
 

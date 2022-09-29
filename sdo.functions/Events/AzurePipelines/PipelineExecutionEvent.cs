@@ -2,39 +2,38 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Text.Json.Serialization;
 using System.Threading.Tasks;
+using Newtonsoft.Json.Converters;
 
 namespace sdo.functions.Events.AzurePipelines
 {
     internal class PipelineExecutionEvent : EventBase
     {
-        [JsonPropertyName("name")]
+        [JsonProperty("name")]
         public string PipelineName { get; set; }
 
-        [JsonPropertyName("runId")]
+        [JsonProperty("runId")]
         public int RunId { get; set; }
 
-        [JsonPropertyName("teamName")]
+        [JsonProperty("teamName")]
         public string TeamName { get; set; }
 
-        [JsonPropertyName("serviceName")]
+        [JsonProperty("serviceName")]
         public string ServiceName { get; set; }
 
-        [JsonPropertyName("serviceVersion")]
+        [JsonProperty("serviceVersion")]
         public string ServiceVersion { get; set; }
 
-        [JsonPropertyName("repoName")]
+        [JsonProperty("repoName")]
         public string RepoName { get; set; }
 
-        [JsonPropertyName("branchName")]
+        [JsonProperty("branchName")]
         public string BranchName { get; set; }
 
-        [JsonPropertyName("commitHash")]
+        [JsonProperty("commitHash")]
         public string CommitHash { get; set; }
 
-        [JsonPropertyName("status")]
+        [JsonProperty("status")]
         public PipelineStatus Status { get; set; }
     }
 }
