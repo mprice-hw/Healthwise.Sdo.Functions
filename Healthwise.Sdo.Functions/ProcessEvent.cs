@@ -10,7 +10,7 @@ using Azure.Storage;
 using Azure.Storage.Blobs;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Extensions.Logging;
-using Healthwise.Sdo.Functions.Events;
+using Healthwise.Sdo.Events;
 using Healthwise.Sdo.Functions.Exceptions;
 
 namespace Healthwise.Sdo.Functions
