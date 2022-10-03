@@ -33,7 +33,10 @@ namespace sdo.functions.Events.AzurePipelines
         [JsonProperty("commitHash")]
         public string CommitHash { get; set; }
 
-        [JsonProperty("status")]
-        public PipelineStatus Status { get; set; }
+        [JsonProperty("state")]
+        public PipelineState State { get; set; }
+
+        [JsonProperty("result")]
+        public PipelineResult Result { get; set; }
     }
 }

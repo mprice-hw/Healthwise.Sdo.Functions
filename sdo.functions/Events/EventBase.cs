@@ -22,8 +22,8 @@ namespace sdo.functions.Events
         [JsonProperty("sourceId")]
         public string SourceId { get; set; }
 
-        [JsonProperty("timeStamp")]
+        [JsonProperty("timestamp")]
         [JsonConverter(typeof(IsoDateTimeConverter))]
-        public DateTimeOffset TimeStamp { get; set; }
+        public DateTimeOffset Timestamp { get; set; }
     }
 }
