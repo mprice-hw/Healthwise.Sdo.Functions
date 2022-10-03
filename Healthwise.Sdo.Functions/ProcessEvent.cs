@@ -10,10 +10,10 @@ using Azure.Storage;
 using Azure.Storage.Blobs;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Extensions.Logging;
-using sdo.functions.Events;
-using sdo.functions.Exceptions;
+using Healthwise.Sdo.Functions.Events;
+using Healthwise.Sdo.Functions.Exceptions;
 
-namespace sdo.functions
+namespace Healthwise.Sdo.Functions
 {
     public static class ProcessEvent
     {

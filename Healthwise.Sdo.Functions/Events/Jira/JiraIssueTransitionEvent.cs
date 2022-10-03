@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using sdo.functions;
+using Healthwise.Sdo.Functions;
 
-namespace sdo.functions.Events.Jira
+namespace Healthwise.Sdo.Functions.Events.Jira
 {
     internal class JiraIssueTransitionEvent : EventBase
     {

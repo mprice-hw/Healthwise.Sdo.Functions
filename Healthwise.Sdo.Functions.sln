@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.32804.182
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sdo.functions", "sdo.functions\sdo.functions.csproj", "{69956A2F-9B94-48EE-AF88-265C44B1CA67}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Healthwise.Sdo.Functions", "Healthwise.Sdo.Functions\Healthwise.Sdo.Functions.csproj", "{69956A2F-9B94-48EE-AF88-265C44B1CA67}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace sdo.functions.Exceptions
+namespace Healthwise.Sdo.Functions.Exceptions
 {
     internal class InvalidEventTypeException : Exception
     {

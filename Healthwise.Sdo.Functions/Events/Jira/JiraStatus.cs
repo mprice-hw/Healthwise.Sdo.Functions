@@ -4,16 +4,17 @@ using System.Linq;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.Threading.Tasks;
+using Healthwise.Sdo.Functions.Events.Jira;
 
-namespace sdo.functions.Events.Jira
+namespace Healthwise.Sdo.Functions.Events.Jira
 {
-    internal class JiraStatusCategory
+    internal class JiraStatus
     {
         [JsonProperty("id")]
         public int Id { get; set; }
-        [JsonProperty("key")]
-        public string Key { get; set; }
         [JsonProperty("name")]
-        public string Name { get; set;  }
+        public string Name { get; set; }
+        [JsonProperty("statusCategory")]
+        public JiraStatusCategory StatusCategory { get; set; }
     }
 }

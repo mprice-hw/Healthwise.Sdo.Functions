@@ -5,7 +5,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.Threading.Tasks;
 
-namespace sdo.functions.Events.Jira
+namespace Healthwise.Sdo.Functions.Events.Jira
 {
     internal class JiraIssue
     {

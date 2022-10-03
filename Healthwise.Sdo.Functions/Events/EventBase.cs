@@ -6,7 +6,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.Threading.Tasks;
 
-namespace sdo.functions.Events
+namespace Healthwise.Sdo.Functions.Events
 {
     internal class EventBase
     {

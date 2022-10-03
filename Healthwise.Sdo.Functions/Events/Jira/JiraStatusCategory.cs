@@ -5,15 +5,15 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.Threading.Tasks;
 
-namespace sdo.functions.Events.Jira
+namespace Healthwise.Sdo.Functions.Events.Jira
 {
-    internal class JiraProject
+    internal class JiraStatusCategory
     {
         [JsonProperty("id")]
         public int Id { get; set; }
         [JsonProperty("key")]
         public string Key { get; set; }
         [JsonProperty("name")]
-        public string Name { get; set; }
+        public string Name { get; set;  }
     }
 }
