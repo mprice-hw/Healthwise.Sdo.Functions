@@ -28,11 +28,11 @@ namespace Healthwise.Sdo.Functions
                 try
                 {
                     var destinationContainerName = GetDestinationContainerName(eventData);
-                    var BlobStorageContainerUri = new Uri((Environment.GetEnvironmentVariable("BlobStorageUri") + "/" + destinationContainerName));
+                    var blobStorageContainerUri = new Uri((Environment.GetEnvironmentVariable("BlobStorageUri") + "/" + destinationContainerName));
                     var storageSharedKeyCred = new StorageSharedKeyCredential("mpsdoprotostorage", Environment.GetEnvironmentVariable("BlobStorageSharedKey"));
 
 
-                    var blobClient = new BlobContainerClient(BlobStorageContainerUri, storageSharedKeyCred);
+                    var blobClient = new BlobContainerClient(blobStorageContainerUri, storageSharedKeyCred);
 
                     var identifier = GetIdentifier(eventData);
                     var blob = blobClient.GetBlobClient(identifier);
@@ -59,7 +59,6 @@ namespace Healthwise.Sdo.Functions
         private static string GetIdentifier(EventData eventData)
         {
             var eventString = eventData.EventBody.ToString();
-            //var eventObject = JsonSerializer.Deserialize<EventBase>(eventString);
             var eventObject = JsonConvert.DeserializeObject<EventBase>(eventString);
             var identifier = eventObject.SourceId;
             return identifier;
@@ -68,7 +67,6 @@ namespace Healthwise.Sdo.Functions
         private static string GetDestinationContainerName(EventData eventData) 
         {
             var eventString = eventData.EventBody.ToString();
-            //var eventObject = JsonSerializer.Deserialize<EventBase>(eventString);
             var eventObject = JsonConvert.DeserializeObject<EventBase>(eventString);
 
             if (eventObject.Type == "PipelineExecutionEvent")
