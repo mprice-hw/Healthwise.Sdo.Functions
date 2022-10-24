@@ -13,20 +13,21 @@ using Healthwise.Sdo.Events;
 using Healthwise.Sdo.Functions.Exceptions;
 using Healthwise.Sdo.Functions.Services;
 using System.ComponentModel.DataAnnotations;
+using Healthwise.Sdo.Functions.Extentions;
 
 namespace Healthwise.Sdo.Functions.EventHub
 {
-    public class ProcessEvent
+    public class EventProcessor
     {
         private readonly IStorageService _storageService;
 
-        public ProcessEvent(IStorageService storageService)
+        public EventProcessor(IStorageService storageService)
         {
             _storageService = storageService;
         }
 
         [FunctionName("ProcessEvent")]
-        public async Task Run([EventHubTrigger("mp-sdo-proto-eventhub", Connection = "EventHubConnectionString")] EventData[] events, ILogger log)
+        public async Task ProcessEvent([EventHubTrigger("mp-sdo-proto-eventhub", Connection = "EventHubConnectionString")] EventData[] events, ILogger log)
         {
             var exceptions = new List<Exception>();       
 
@@ -34,7 +35,14 @@ namespace Healthwise.Sdo.Functions.EventHub
             {
                 try
                 {
-                    await _storageService.AddEventAsync(eventData);
+                    //Todo: Make this work with all event types.
+                    var eventBody = await eventData.GetEventBodyAsync<EventBase>();
+
+                    if (eventBody.IsValid)
+                    {
+                        await _storageService.AddEventAsync(eventData);
+                    }
+
                 }
                 catch (Exception e)
                 {
