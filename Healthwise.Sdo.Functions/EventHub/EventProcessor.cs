@@ -13,7 +13,10 @@ using Healthwise.Sdo.Events;
 using Healthwise.Sdo.Functions.Exceptions;
 using Healthwise.Sdo.Functions.Services;
 using System.ComponentModel.DataAnnotations;
-using Healthwise.Sdo.Functions.Extentions;
+using Healthwise.Sdo.Functions.Validation;
+using Azure;
+using Healthwise.Sdo.Events.AzurePipelines;
+using System.Reflection;
 
 namespace Healthwise.Sdo.Functions.EventHub
 {
@@ -35,8 +38,13 @@ namespace Healthwise.Sdo.Functions.EventHub
             {
                 try
                 {
-                    //Todo: Make this work with all event types.
-                    var eventBody = await eventData.GetEventBodyAsync<EventBase>();
+                    //This code block allows us to use the event type sent with at runtime
+                    var eventTypeName = JsonConvert.DeserializeObject<EventBase>(eventData.EventBody.ToString()).Type;
+                    var eventAssembly = typeof(EventBase).Assembly;
+                    var eventType = eventAssembly.GetTypes().Where(t => t.Name == eventTypeName).First();
+                    var methodInfo = typeof(EventDataValidationExtentions).GetMethod("GetEventBody");
+                    var genericMethodInfo = methodInfo.MakeGenericMethod(eventType);
+                    dynamic eventBody = genericMethodInfo.Invoke(null, new[] { eventData });
 
                     if (eventBody.IsValid)
                     {
@@ -59,6 +67,6 @@ namespace Healthwise.Sdo.Functions.EventHub
 
             if (exceptions.Count == 1)
                 throw exceptions.Single();
-        }
+        } 
     }
 }

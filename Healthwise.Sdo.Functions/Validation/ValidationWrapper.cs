@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Healthwise.Sdo.Functions.Extentions
+namespace Healthwise.Sdo.Functions.Validation
 {
     // https://medium.com/@mariochiadev/model-validation-for-http-triggered-azure-functions-in-c-130676c2d490
     public class ValidationWrapper<T>
